@@ -1,61 +1,56 @@
 # Music Subscription Conversion Prediction – Freemium-to-Premium Modeling
 
 ## ABOUT THE PROJECT:
-This project focused on developing a predictive model for XYZ, a music-listening social platform, to identify users most likely to convert from free to premium subscriptions following a promotional campaign. As an individual contributor in a team setting, I led the data preprocessing, oversampling strategy, feature selection, and classification modeling using Python and scikit-learn. The goal was to support better targeting strategies in future campaigns by using data science to rank conversion likelihoods.
+This project focused on building a predictive model for XYZ, a music-listening social network, to identify users most likely to convert from free to premium subscriptions after a campaign. Implemented entirely in R, the solution handled imbalanced class distribution, evaluated multiple classifiers, and provided interpretable metrics for targeting optimization. I led the model development, feature evaluation, and presentation of managerial insights.
 
 
 ## USE CASE EXPLANATION:
-In the freemium business model, predicting upgrade potential is critical for increasing revenue while minimizing promotional waste. This project falls under subscription analytics, predictive modeling, and customer behavior mining. Our goal was to support marketing operations by:
-
-- Prioritizing likely converters
-
-- Reducing customer acquisition costs
-
-- Improving personalization in campaigns
-The dataset was highly imbalanced (~3.7% converters), making it a real-world challenge requiring robust evaluation and sampling strategies.
+In freemium business models, predicting high-likelihood converters is essential to increase ROI on campaigns. This case addressed subscription analytics, where identifying responsive users helps improve personalization and reduce marketing spend. The project is relevant for marketing analysts, data scientists, and growth strategists in digital platforms or subscription-based services.
 
 
 ## HOW IT IS BUILT AND FULL WORKING:
 
-1. Data Preprocessing:
+1. Data Preparation:
 
-- Cleaned and normalized a dataset of 41,540 users (1,540 adopters, 40,000 non-adopters).
+- Dataset: 41,540 users (1,540 adopters, 40,000 non-adopters) with 25 behavioral attributes.
 
-- Removed irrelevant ID columns and engineered delta features for user activity trends.
+- Removed identifiers, engineered delta-based behavior change features.
 
-- Handled imbalance using Random Oversampling on the minority class (positive converters).
+- Performed Smote oversampling to address 1:26 imbalance.
 
-2. Modeling Techniques Explored:
+2. Modeling:
 
-- Trained baseline Decision Tree and tuned Random Forest Classifier for best performance.
+- Trained Decision Tree and Random Forest models using rpart, randomForest, and ROCR libraries.
 
-- Performed GridSearchCV for hyperparameter optimization (max depth, estimators, min split).
+- Conducted 5-fold cross-validation.
 
-- Applied feature importance ranking to interpret the drivers of adoption.
+- Evaluated using AUC, F1 Score, and Cumulative Response Curves.
 
-3. Evaluation & Metric Justification:
+3. Model Insights:
 
-- Chose AUC-ROC as the primary metric to handle imbalance while measuring discriminatory power.
+- Random Forest outperformed others with AUC = 0.77 and strong lift in top deciles.
 
-- AUC was prioritized over accuracy or F1 due to business need to prioritize top-ranked high-likelihood adopters.
+- Top predictors: subscriber_friend_cnt, delta_songsListened, delta_friend_cnt, and avg_friend_male.
 
-4. Key Features Identified:
+4. Presentation:
 
-- subscriber_friend_cnt, delta_friend_cnt, delta_songsListened, and friend_country_cnt were among the most influential predictors.
+- Translated technical metrics (TPR, Precision, ROC) into business KPIs.
+
+- Delivered a managerial summary with targeting strategies for high-response segment
 
 
 ## OUTPUT AND RESULTS OR BENCHMARKS:
 
 - Final Random Forest model achieved AUC ≈ 0.77, demonstrating effective separation of converters vs. non-converters.
 
-- Identified top behavioral signals indicating subscription likelihood, enabling marketing segmentation.
+- Top 3 deciles captured 60–70% of all converters, guiding priority targets.
 
-- Presented actionable managerial insights with visuals for non-technical stakeholders (e.g., top predictive behaviors, targeting strategies).
+- Visualized adoption potential via cumulative response and lift charts for campaign ROI.
 
 
 ## SKILLS, TOOLS:
-Python, Scikit-learn, Random Forest, Decision Tree, Oversampling, ROC-AUC, GridSearchCV, Feature Importance, Classification, Data Cleaning, Model Evaluation, Business Communication
+R, rpart, randomForest, ROCR, caret, dplyr, data visualization, oversampling, ROC curve, F1 score, cumulative gains, segmentation modeling
 
 ## KEYWORDS:
-Freemium model, subscription analytics, imbalanced classification, customer prediction, random forest, oversampling, AUC optimization, data-driven marketing, churn prevention, music tech analytics
+Freemium analytics, music tech, R machine learning, subscription prediction, class imbalance, random forest in R, ROC-AUC, campaign targeting, lift chart, marketing analytics
 
